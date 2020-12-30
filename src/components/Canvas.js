@@ -16,7 +16,7 @@ class Canvas extends React.Component {
     }
 
     drawGame() {
-        console.log(this.props);
+        //console.log(this.props);
         
         const canvas = this.canvasRef.current;
         const context = canvas.getContext('2d');
