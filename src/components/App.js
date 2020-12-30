@@ -7,16 +7,13 @@ class App extends React.Component {
         this.onDown = this.onDown.bind(this);
         this.state = {
             players: {
-                'player1': {
-                    x: 1,
-                    y: 1,
-                }
+                'player1': { x: 1, y: 1 },
+                'player2': { x: 3, y: 2 },
             },
             items: {
-                'item1': {
-                    x: 4,
-                    y: 4,
-                }
+                'item1': { x: 4, y: 4 },
+                'item2': { x: 6, y: 6 },
+                
             },
             size: {
                 width: 400,

@@ -26,23 +26,28 @@ class Canvas extends React.Component {
 
         /* Render all players */
         context.fillStyle = 'black';
-        context.fillRect(
-            context.canvas.width/10 * this.props.players['player1'].x,
-            context.canvas.height/10 * this.props.players['player1'].y,
-            context.canvas.width/10,
-            context.canvas.height/10,
-        );
+        for (const playerId in this.props.players) {
+            context.fillRect(
+                context.canvas.width/10 * this.props.players[playerId].x,
+                context.canvas.height/10 * this.props.players[playerId].y,
+                context.canvas.width/10,
+                context.canvas.height/10,
+            );
+        }
+        
 
         
 
         /* Render all items */
-        context.fillStyle = 'green';        
-        context.fillRect(
-            context.canvas.width/10 * this.props.items['item1'].x,
-            context.canvas.height/10 * this.props.items['item1'].y,
-            context.canvas.width/10,
-            context.canvas.height/10,
-        );
+        context.fillStyle = 'green';
+        for (const itemId in this.props.items) {
+            context.fillRect(
+                context.canvas.width/10 * this.props.items[itemId].x,
+                context.canvas.height/10 * this.props.items[itemId].y,
+                context.canvas.width/10,
+                context.canvas.height/10,
+            );
+        }
         
     }
 
