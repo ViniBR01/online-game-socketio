@@ -6,18 +6,15 @@ class Canvas extends React.Component {
         super(props);
         this.canvasRef = React.createRef();
         this.drawGame = this.drawGame.bind(this);
-        this.eraseCanvas = this.eraseCanvas.bind(this);
     }
 
     componentDidMount() {
         this.drawGame();
     }
     componentDidUpdate() {
-        this.eraseCanvas();
         this.drawGame();
     }
     componentWillUnmount() {
-        this.eraseCanvas();
     }
 
     drawGame() {
@@ -50,14 +47,6 @@ class Canvas extends React.Component {
         );
         
     }
-
-    eraseCanvas() {
-        const canvas = this.canvasRef.current;
-        const context = canvas.getContext('2d');
-        /* Use clean start */
-        context.fillStyle = 'white';
-        context.fillRect(0, 0, context.canvas.width, context.canvas.height);
-    };
 
     render() {
         return (
