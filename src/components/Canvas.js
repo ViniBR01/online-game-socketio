@@ -14,8 +14,6 @@ class Canvas extends React.Component {
     componentDidUpdate() {
         this.drawGame();
     }
-    componentWillUnmount() {
-    }
 
     drawGame() {
         console.log(this.props);
@@ -29,8 +27,8 @@ class Canvas extends React.Component {
         /* Render all players */
         context.fillStyle = 'black';
         context.fillRect(
-            context.canvas.width/10 * this.props.player.x,
-            context.canvas.height/10 * this.props.player.y,
+            context.canvas.width/10 * this.props.players['player1'].x,
+            context.canvas.height/10 * this.props.players['player1'].y,
             context.canvas.width/10,
             context.canvas.height/10,
         );
@@ -40,8 +38,8 @@ class Canvas extends React.Component {
         /* Render all items */
         context.fillStyle = 'green';        
         context.fillRect(
-            context.canvas.width/10 * this.props.x_i.x,
-            context.canvas.height/10 * this.props.y_i.y,
+            context.canvas.width/10 * this.props.items['item1'].x,
+            context.canvas.height/10 * this.props.items['item1'].y,
             context.canvas.width/10,
             context.canvas.height/10,
         );
@@ -54,7 +52,7 @@ class Canvas extends React.Component {
                 <canvas ref={this.canvasRef} id="screen" width={this.props.size.width} height={this.props.size.height}>
                 </canvas>
                 
-                <h1>Player position: ({this.props.player.x}, {this.props.player.y})</h1>
+                <h1>Player position: ({this.props.players['player1'].x}, {this.props.players['player1'].y})</h1>
                 <h4>use keyboard arrows to move player</h4>
             </div>
                 );

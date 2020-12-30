@@ -6,16 +6,23 @@ class App extends React.Component {
         super();
         this.onDown = this.onDown.bind(this);
         this.state = {
-            player: {
-                x: 1,
-                y: 1,
+            players: {
+                'player1': {
+                    x: 1,
+                    y: 1,
+                }
             },
-            x_i: {x: 4},
-            y_i: {y: 4},
+            items: {
+                'item1': {
+                    x: 4,
+                    y: 4,
+                }
+            },
             size: {
                 width: 400,
                 height: 400,
-                /* Assumes a 10x10 grid */
+                rows: 10,
+                columns: 10,
             }
         };
     }
@@ -31,31 +38,31 @@ class App extends React.Component {
     onDown(event) {
         switch (event.key) {
             case 'ArrowUp':
-                var player = {...this.state.player};
-                player.y = (this.state.player.y + 9) % 10;
+                var players = {...this.state.players};
+                players['player1'].y = (this.state.players['player1'].y + 9) % 10;
                 this.setState ((state, props) => ({
-                    player: player,
+                    players: players,
                 }));
                 break;
             case 'ArrowDown':
-                var player = {...this.state.player};
-                player.y = (this.state.player.y + 11) % 10;
+                var players = {...this.state.players};
+                players['player1'].y = (this.state.players['player1'].y + 11) % 10;
                 this.setState ((state, props) => ({
-                    player: player,
+                    players: players,
                 }));
                 break;
             case 'ArrowLeft':
-                var player = {...this.state.player};
-                player.x = (this.state.player.x + 9) % 10;
+                var players = {...this.state.players};
+                players['player1'].x = (this.state.players['player1'].x + 9) % 10;
                 this.setState ((state, props) => ({
-                    player: player,
+                    players: players,
                 }));
                 break;
             case 'ArrowRight':
-                var player = {...this.state.player};
-                player.x = (this.state.player.x + 11) % 10;
+                var players = {...this.state.players};
+                players['player1'].x = (this.state.players['player1'].x + 11) % 10;
                 this.setState ((state, props) => ({
-                    player: player,
+                    players: players,
                 }));
                 break;
             default:
